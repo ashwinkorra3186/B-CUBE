@@ -1,0 +1,170 @@
+/* 
+ * 3D Rotating Cube Styles
+ * For B CUBE Consulting Logo
+ */
+
+.cube-container {
+    width: 80px;
+    height: 80px;
+    perspective: 1000px;
+    margin-right: 15px;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-40px);
+    animation: rotate 10s infinite linear;
+}
+
+.cube-face {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    opacity: 0.95;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Common styles for all cube faces */
+.cube-face {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    opacity: 0.95;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--heading-font);
+    font-size: 70px; /* Increased font size to fill the face */
+    font-weight: 900; /* Extra bold */
+    line-height: 1;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Front face - gold */
+.cube-face-front {
+    transform: rotateY(0deg) translateZ(40px);
+    background-color: #d4af37; /* Gold */
+    color: #000000; /* Black */
+}
+
+/* Back face - black */
+.cube-face-back {
+    transform: rotateY(180deg) translateZ(40px);
+    background-color: #000000; /* Black */
+    color: #d4af37; /* Gold */
+}
+
+/* Right face - gold */
+.cube-face-right {
+    transform: rotateY(90deg) translateZ(40px);
+    background-color: #d4af37; /* Gold */
+    color: #000000; /* Black */
+}
+
+/* Left face - black */
+.cube-face-left {
+    transform: rotateY(-90deg) translateZ(40px);
+    background-color: #000000; /* Black */
+    color: #d4af37; /* Gold */
+}
+
+/* Top face - gold */
+.cube-face-top {
+    transform: rotateX(90deg) translateZ(40px);
+    background-color: #d4af37; /* Gold */
+    color: #000000; /* Black */
+}
+
+/* Bottom face - black */
+.cube-face-bottom {
+    transform: rotateX(-90deg) translateZ(40px);
+    background-color: #000000; /* Black */
+    color: #d4af37; /* Gold */
+}
+
+/* Remove white squares */
+
+/* Cube rotation animation */
+@keyframes rotate {
+    0% {
+        transform: translateZ(-40px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100% {
+        transform: translateZ(-40px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+/* Logo text styling */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    font-family: var(--body-font);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cube-container {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cube-face {
+        width: 60px;
+        height: 60px;
+        font-size: 50px; /* Adjusted font size for smaller cube */
+    }
+    
+    .cube-face-front {
+        transform: rotateY(0deg) translateZ(30px);
+    }
+    
+    .cube-face-back {
+        transform: rotateY(180deg) translateZ(30px);
+    }
+    
+    .cube-face-right {
+        transform: rotateY(90deg) translateZ(30px);
+    }
+    
+    .cube-face-left {
+        transform: rotateY(-90deg) translateZ(30px);
+    }
+    
+    .cube-face-top {
+        transform: rotateX(90deg) translateZ(30px);
+    }
+    
+    .cube-face-bottom {
+        transform: rotateX(-90deg) translateZ(30px);
+    }
+    
+    @keyframes rotate {
+        0% {
+            transform: translateZ(-30px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        100% {
+            transform: translateZ(-30px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+    }
+}
